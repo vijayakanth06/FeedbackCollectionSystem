@@ -14,7 +14,7 @@ public class Main {
     private JTextArea commentsArea;
     private JLabel staffLabel;
     private int studentId;
-    
+
     public Main() {
         frame = new JFrame("Feedback Collection System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,7 +43,11 @@ public class Main {
         JPanel feedbackPanel = new JPanel(new GridLayout(6, 2));
         feedbackPanel.add(new JLabel("Select Course:"));
 
-        String[] courses = {"Design and Analysis of Algorithms", "Data Processing and Visualization", "Discrete Mathematics and Linear Algebra", "Machine Learning", "Java Programming", "Environmental Science"};
+        String[] courses = {
+            "Design and Analysis of Algorithms", "Data Processing and Visualization", 
+            "Discrete Mathematics and Linear Algebra", "Machine Learning", 
+            "Java Programming", "Environmental Science"
+        };
         courseBox = new JComboBox<>(courses);
         courseBox.addActionListener(e -> updateStaff());
 
@@ -74,7 +78,8 @@ public class Main {
     }
 
     private void updateStaff() {
-        String[] staff = {"Ms.S.Priyanka", "Ms.s.Benil Jeniffer", "Dr.V.S.HemaChandira", "Ms.S.Santhiya", "Ms.A.S.Renugadevi", "Dr.A.Revathi"};
+        String[] staff = {"Ms.S.Priyanka", "Ms.s.Benil Jeniffer", "Dr.V.S.HemaChandira", 
+                          "Ms.S.Santhiya", "Ms.A.S.Renugadevi", "Dr.A.Revathi"};
         staffLabel.setText(staff[courseBox.getSelectedIndex()]);
     }
 
@@ -188,7 +193,7 @@ public class Main {
                         .append("Comments: ").append(rs.getString("comments")).append("\n\n");
             }
     
-            JOptionPane.showMessageDialog(frame, feedback.toString());  // Display feedback to user
+            JOptionPane.showMessageDialog(frame, feedback.toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }
